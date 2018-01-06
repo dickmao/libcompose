@@ -14,7 +14,7 @@ func (p *Project) Down(ctx context.Context, opts options.Down, services ...strin
 	if !opts.RemoveImages.Valid() {
 		return fmt.Errorf("--rmi flag must be local, all or empty")
 	}
-	if err := p.Stop(ctx, 10, services...); err != nil {
+	if err := p.Stop(ctx, 300, services...); err != nil {
 		return err
 	}
 	if opts.RemoveOrphans {
